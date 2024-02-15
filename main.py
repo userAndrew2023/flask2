@@ -35,5 +35,41 @@ def list_prof(type_list):
     return render_template('list_prof.html', **data)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    data = [
+        {
+            "key": "Фамилия",
+            "value": "Анкета"
+        },
+        {
+            "key": "Имя",
+            "value": "Иван"
+        },
+        {
+            "key": "Образование",
+            "value": "среднее"
+        },
+        {
+            "key": "Профессия",
+            "value": "пилот"
+        },
+        {
+            "key": "Пол",
+            "value": "male"
+        },
+        {
+            "key": "Мотивация",
+            "value": "хочу побывать на Марсе"
+        },
+        {
+            "key": "Готовы остаться на Марсе",
+            "value": True
+        }
+    ]
+    return render_template('answer.html', data=data, title="Анкета")
+
+
 if __name__ == '__main__':
     app.run()

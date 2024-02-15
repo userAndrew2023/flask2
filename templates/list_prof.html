@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <h2>Список проффесий</h2>
+    {% if type_list in ["ul", "ol"] %}
+        <{{ type_list }}>
+            {% for index in list_prof %}
+                <li> {{ index }} </li>
+            {% endfor %}
+        </{{ type_list }}>
+    {% else %}
+    <p>Неверный формат</p>
+    {% endif %}
+
+{% endblock %}

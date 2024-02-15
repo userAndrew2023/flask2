@@ -25,8 +25,14 @@ def training(prof):
     return render_template('training.html', **data)
 
 
-def error404():
-    return "УПС. Эта страница не найдена"
+@app.route('/list_prof/<type_list>')
+def list_prof(type_list):
+    list_prof_array = ["Инженер", "Строитель", "Врач", "Программист", "Пилот"]
+    data = {
+        "type_list": type_list,
+        "list_prof": list_prof_array
+    }
+    return render_template('list_prof.html', **data)
 
 
 if __name__ == '__main__':

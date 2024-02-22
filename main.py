@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+
+from login_form import LoginForm
 
 app = Flask(__name__)
 
@@ -70,6 +72,16 @@ def answer():
     ]
     return render_template('answer.html', data=data, title="Анкета")
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('login.html', title='Авторизация', form=form)
+
+
+app.config['SECRET_KEY'] = 'key'
 
 if __name__ == '__main__':
     app.run()
